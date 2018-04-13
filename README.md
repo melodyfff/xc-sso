@@ -1,2 +1,2 @@
 # xc-sso
-SSO D
+SSO Demo
