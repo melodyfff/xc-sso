@@ -26,6 +26,13 @@
             <scope>runtime</scope>
         </dependency>
 
+        <!--jdbc认证-->
+        <dependency>
+            <groupId>org.apereo.cas</groupId>
+            <artifactId>cas-server-support-jdbc</artifactId>
+            <version>${cas.version}</version>
+        </dependency>
+
         <!-- mysql连接 -->
         <dependency>
             <groupId>mysql</groupId>
