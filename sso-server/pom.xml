@@ -25,20 +25,24 @@
             <type>war</type>
             <scope>runtime</scope>
         </dependency>
-
-        <!--jdbc认证-->
+        <!--shiro认证-->
         <dependency>
             <groupId>org.apereo.cas</groupId>
-            <artifactId>cas-server-support-jdbc</artifactId>
+            <artifactId>cas-server-support-generic</artifactId>
             <version>${cas.version}</version>
         </dependency>
-
-        <!-- mysql连接 -->
+        <!--restj认证-->
         <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <version>5.1.38</version>
+            <groupId>org.apereo.cas</groupId>
+            <artifactId>cas-server-support-rest-authentication</artifactId>
+            <version>${cas.version}</version>
         </dependency>
+        <!-- mysql连接 -->
+        <!--<dependency>-->
+            <!--<groupId>mysql</groupId>-->
+            <!--<artifactId>mysql-connector-java</artifactId>-->
+            <!--<version>5.1.38</version>-->
+        <!--</dependency>-->
 
     </dependencies>
 
