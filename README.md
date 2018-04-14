@@ -1,8 +1,19 @@
 # xc-sso
 SSO Demo
 
-- [SSL证书相关](https://melodyfff.github.io/2018/04/13/【Java】keytool制作CA根证书以及颁发二级证书/)
+用户：
 
-hosts 里面将本地添加xinchen.sso.com
+| 用户名 |密码|是否可登录|备注|
+|:-------|:-------|:-------|:-------|
+|admin|123|√||
+|zhangsan|12345678|√||
+|zhaosi|12345|×|禁用|
+|wangwu|1234|√|需修改密码|
 
-https://xinchen.sso.com:8443/cas
+## 模块介绍
+
+| 模块名 |模块介绍|备注|端口情况|必须https|path|启动循序
+|:-------|:-------|:-------|:----|:-------|:-----|:--|
+|sso-server|cas服务|接入鉴权|8443|√|cas|2|
+|sso-config|配置中心|管理各个服务配置|8888|×|config|1|
+|sso-management|service管理|接入管理|8081|×|cas-management|3|
