@@ -1,6 +1,19 @@
 # xc-sso
 SSO Demo
 
+
+ ssl开关
+ 
+ `sso-config resources/config/sso-dev.properties`
+ 
+```bsah
+ server.ssl.enabled=true
+ server.ssl.key-store=classpath:tomcat.keystore
+ server.ssl.key-store-password=123456
+ server.ssl.keyAlias=xinchen.sso.com
+```
+
+## 测试信息
 用户：
 
 | 用户名 |密码|是否可登录|备注|
