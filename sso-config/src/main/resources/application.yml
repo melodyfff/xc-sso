@@ -16,7 +16,7 @@ spring:
     active:
       #配置文件本地化
       - native
-      - dev
+#      - dev
   application:
     #指定应用名称
-    name: sso
+    name: sso-config

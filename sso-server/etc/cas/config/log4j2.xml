@@ -108,7 +108,7 @@
         <AsyncRoot level="warn">
             <AppenderRef ref="casFile"/>
             <!-- 
-                 For deployment to an application server running as service, 
+                 For deployment to an application server running as services,
                  delete the casConsole appender below
             -->
             <AppenderRef ref="casConsole"/>
