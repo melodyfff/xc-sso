@@ -26,6 +26,12 @@
             <scope>runtime</scope>
         </dependency>
 
+        <dependency>
+            <groupId>com.xinchen.cas</groupId>
+            <artifactId>sso-support-custom-auth</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
         <!--jdbc认证-->
         <dependency>
             <groupId>org.apereo.cas</groupId>

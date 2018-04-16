@@ -13,6 +13,7 @@
         <module>sso-server</module>
         <module>sso-config</module>
         <module>sso-management</module>
+        <module>sso-support</module>
         <module>sso-client-demo</module>
         <module>sso-spring-dependencies</module>
     </modules>
@@ -54,23 +55,6 @@
             <!--<url>http://uk.maven.org/maven2/</url>-->
         <!--</pluginRepository>-->
     <!--</pluginRepositories>-->
-
-    <!-- <organization>
-        <name>卡尔科技工作室</name>
-        <url>http://blog.csdn.net/u010475041</url>
-    </organization> -->
-
-    <!-- <developers>
-        <developer>
-            <name>Carl</name>
-            <email>huang.wenbin@foxmail.com</email>
-            <roles>
-                <role>architect</role>
-                <role>developer</role>
-            </roles>
-            <organization>卡尔科技工作室</organization>
-        </developer>
-    </developers> -->
     <build>
         <plugins>
             <plugin>
