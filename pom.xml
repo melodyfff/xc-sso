@@ -11,11 +11,6 @@
 
     <modules>
         <module>sso-server</module>
-        <module>sso-config</module>
-        <module>sso-management</module>
-        <module>sso-support</module>
-        <module>sso-client-demo</module>
-        <module>sso-spring-dependencies</module>
     </modules>
 
 

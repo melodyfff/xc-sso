@@ -27,9 +27,15 @@
         </dependency>
 
         <dependency>
-            <groupId>com.xinchen.cas</groupId>
-            <artifactId>sso-support-custom-auth</artifactId>
-            <version>${project.version}</version>
+            <groupId>org.apereo.cas</groupId>
+            <artifactId>cas-server-core-webflow</artifactId>
+            <version>${cas.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apereo.cas</groupId>
+            <artifactId>cas-server-webapp-config</artifactId>
+            <version>${cas.version}</version>
+            <scope>provided</scope>
         </dependency>
 
         <!--jdbc认证-->
@@ -131,6 +137,15 @@
                         <overlay>
                             <groupId>org.apereo.cas</groupId>
                             <artifactId>cas-server-webapp-tomcat</artifactId>
+                            <!--原有的服务不再初始化进去-->
+                            <excludes>
+                                <exclude>WEB-INF/classes/services/*</exclude>
+                                <exclude>WEB-INF/classes/application.*</exclude>
+                                <exclude>WEB-INF/classes/bootstrap.properties</exclude>
+                                <exclude>**/user-details.properties</exclude>
+                                <exclude>**/truststore.jks</exclude>
+                                <exclude>**/*.md</exclude>
+                            </excludes>
                         </overlay>
                     </overlays>
                     <dependentWarExcludes>

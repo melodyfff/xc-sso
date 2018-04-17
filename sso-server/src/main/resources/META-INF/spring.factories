@@ -1,0 +1,1 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=com.xinchen.cas.auth.config.CustomerAuthWebflowConfiguration,com.xinchen.cas.auth.config.CustomAuthenticationEventExecutionPlanConfiguration
