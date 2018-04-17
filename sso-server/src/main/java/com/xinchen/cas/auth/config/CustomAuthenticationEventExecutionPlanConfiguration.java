@@ -5,6 +5,7 @@
 
 package com.xinchen.cas.auth.config;
 
+import com.mchange.v2.c3p0.ComboPooledDataSource;
 import com.xinchen.cas.auth.entity.OK;
 import com.xinchen.cas.auth.handler.UsernamePasswordSystemAuthenticationHandler;
 import org.apereo.cas.authentication.AuthenticationEventExecutionPlan;
@@ -30,6 +31,10 @@ public class CustomAuthenticationEventExecutionPlanConfiguration implements Auth
     @Autowired
     @Qualifier("myok")
     private OK ok;
+
+    @Autowired
+    @Qualifier("dataSource")
+    private ComboPooledDataSource dataSource;
 
     @Autowired
     @Qualifier("servicesManager")
