@@ -5,6 +5,7 @@
 
 package com.xinchen.cas.auth.config;
 
+import com.xinchen.cas.auth.entity.OK;
 import com.xinchen.cas.auth.handler.UsernamePasswordSystemAuthenticationHandler;
 import org.apereo.cas.authentication.AuthenticationEventExecutionPlan;
 import org.apereo.cas.authentication.AuthenticationEventExecutionPlanConfigurer;
@@ -26,6 +27,10 @@ import org.springframework.context.annotation.Configuration;
 @Configuration("customAuthenticationEventExecutionPlanConfiguration")
 @EnableConfigurationProperties(CasConfigurationProperties.class)
 public class CustomAuthenticationEventExecutionPlanConfiguration implements AuthenticationEventExecutionPlanConfigurer {
+    @Autowired
+    @Qualifier("myok")
+    private OK ok;
+
     @Autowired
     @Qualifier("servicesManager")
     private ServicesManager servicesManager;
