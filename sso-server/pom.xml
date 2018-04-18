@@ -32,6 +32,16 @@
             <groupId>org.apereo.cas</groupId>
             <artifactId>cas-server-core-configuration</artifactId>
             <version>${cas.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework.cloud</groupId>
+                    <artifactId>spring-cloud-commons</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.springframework.cloud</groupId>
+                    <artifactId>spring-cloud-context</artifactId>
+                </exclusion>
+            </exclusions>
             <!--<scope>system</scope>-->
             <!--<optional>true</optional>-->
             <!--<systemPath>${project.basedir}/src/main/webapp/WEB-INF/lib/cas-server-core-configuration-${cas.version}.jar</systemPath>-->

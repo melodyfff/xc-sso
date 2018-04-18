@@ -1,6 +1,7 @@
 package com.xinchen.cas.auth;
 
 import org.apache.commons.lang3.builder.HashCodeBuilder;
+import org.apereo.cas.authentication.RememberMeUsernamePasswordCredential;
 import org.apereo.cas.authentication.UsernamePasswordCredential;
 
 import javax.validation.constraints.Size;
@@ -12,7 +13,7 @@ import javax.validation.constraints.Size;
  * @date 2017/10/23
  * @since
  */
-public class UsernamePasswordSysCredential extends UsernamePasswordCredential  {
+public class UsernamePasswordSysCredential extends RememberMeUsernamePasswordCredential {
     @Size(min = 2, message = "require system")
     private String system;
 

@@ -32,6 +32,16 @@ public class UsernamePasswordSystemAuthenticationHandler extends AbstractPreAndP
         UsernamePasswordSysCredential sysCredential = (UsernamePasswordSysCredential) credential;
         if ("admin".equals(sysCredential.getUsername()) && "ssh".equals(sysCredential.getSystem())) {
             //这里可以自定义属性数据
+            //返回多属性
+//            Map<String, Object> map=new HashMap<>();
+//            map.put("email", user.getEmail().toString());
+//            map.put("status", user.getStatus().toString());
+//            LOGGER.info(map.get("email").toString());
+//            LOGGER.info("++++++++++++++++++++zjzjzjz",map);
+//
+//            if(PasswordUtil.decodePassword(user.getPassword(), pd, username)){
+//                return createHandlerResult(transformedCredential, principalFactory.createPrincipal(username, map), null);
+//            }
             return createHandlerResult(credential, this.principalFactory.createPrincipal(((UsernamePasswordSysCredential) credential).getUsername(), Collections.emptyMap()), null);
         } else {
             throw new AccountNotFoundException("必须是admin用户才允许通过");
