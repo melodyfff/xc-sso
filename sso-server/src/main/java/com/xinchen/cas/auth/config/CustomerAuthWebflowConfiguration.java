@@ -1,6 +1,7 @@
 package com.xinchen.cas.auth.config;
 
 import com.xinchen.cas.auth.CustomWebflowConfigurer;
+import com.xinchen.cas.auth.entity.OK;
 import org.apereo.cas.configuration.CasConfigurationProperties;
 import org.apereo.cas.web.flow.CasWebflowConfigurer;
 import org.apereo.cas.web.flow.config.CasWebflowContextConfiguration;

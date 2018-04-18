@@ -17,16 +17,14 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 /**
- * @author Carl
- * @date 2017/10/23
- * @since 1.6.0
+ * 寄存器
  */
 @Configuration("customAuthenticationEventExecutionPlanConfiguration")
 @EnableConfigurationProperties(CasConfigurationProperties.class)
 public class CustomAuthenticationEventExecutionPlanConfiguration implements AuthenticationEventExecutionPlanConfigurer {
-//    @Autowired
-//    @Qualifier("myok")
-//    private OK ok;
+    @Autowired
+    @Qualifier("myok")
+    private OK ok;
 //
 //    @Autowired
 //    @Qualifier("dataSource")
