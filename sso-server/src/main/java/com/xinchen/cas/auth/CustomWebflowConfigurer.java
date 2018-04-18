@@ -1,33 +1,31 @@
-/*
- * 版权所有.(c)2008-2017. 卡尔科技工作室
- */
-
 package com.xinchen.cas.auth;
 
-import org.apereo.cas.web.flow.AbstractCasWebflowConfigurer;
+import org.apereo.cas.configuration.CasConfigurationProperties;
 import org.apereo.cas.web.flow.CasWebflowConstants;
+import org.apereo.cas.web.flow.configurer.AbstractCasWebflowConfigurer;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.context.ApplicationContext;
 import org.springframework.webflow.definition.registry.FlowDefinitionRegistry;
 import org.springframework.webflow.engine.Flow;
 import org.springframework.webflow.engine.ViewState;
 import org.springframework.webflow.engine.builder.BinderConfiguration;
 import org.springframework.webflow.engine.builder.support.FlowBuilderServices;
 
-/**
- * 重新定义默认的web流程
- *
- * @author Carl
- * @date 2017/10/23
- * @since 1.6.0
- */
 public class CustomWebflowConfigurer extends AbstractCasWebflowConfigurer {
 
-    public CustomWebflowConfigurer(FlowBuilderServices flowBuilderServices, FlowDefinitionRegistry flowDefinitionRegistry) {
-        super(flowBuilderServices, flowDefinitionRegistry);
+    private static final Logger LOGGER = LoggerFactory.getLogger(CustomWebflowConfigurer.class);
+
+    public CustomWebflowConfigurer(FlowBuilderServices flowBuilderServices,
+                                      FlowDefinitionRegistry flowDefinitionRegistry,
+                                      ApplicationContext applicationContext,
+                                      CasConfigurationProperties casProperties) {
+        super(flowBuilderServices, flowDefinitionRegistry, applicationContext, casProperties);
     }
 
     @Override
-    protected void doInitialize() throws Exception {
-        final Flow flow = getLoginFlow();
+    protected void doInitialize(){
+        final Flow flow = super.getLoginFlow();
         bindCredential(flow);
     }
 

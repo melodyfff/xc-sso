@@ -1,11 +1,7 @@
-/*
- * 版权所有.(c)2008-2017. 卡尔科技工作室
- */
-
 package com.xinchen.cas.auth;
 
 import org.apache.commons.lang3.builder.HashCodeBuilder;
-import org.apereo.cas.authentication.RememberMeUsernamePasswordCredential;
+import org.apereo.cas.authentication.UsernamePasswordCredential;
 
 import javax.validation.constraints.Size;
 
@@ -16,7 +12,7 @@ import javax.validation.constraints.Size;
  * @date 2017/10/23
  * @since
  */
-public class UsernamePasswordSysCredential extends RememberMeUsernamePasswordCredential {
+public class UsernamePasswordSysCredential extends UsernamePasswordCredential  {
     @Size(min = 2, message = "require system")
     private String system;
 

@@ -1,7 +1,3 @@
-/*
- * 版权所有.(c)2008-2017. 卡尔科技工作室
- */
-
 package com.xinchen.cas.auth.handler;
 
 import com.xinchen.cas.auth.UsernamePasswordSysCredential;
@@ -34,7 +30,7 @@ public class UsernamePasswordSystemAuthenticationHandler extends AbstractPreAndP
         System.out.println("==========================================================");
         //当用户名为admin,并且system为sso即允许通过
         UsernamePasswordSysCredential sysCredential = (UsernamePasswordSysCredential) credential;
-        if ("admin".equals(sysCredential.getUsername()) && "sso".equals(sysCredential.getSystem())) {
+        if ("admin".equals(sysCredential.getUsername()) && "ssh".equals(sysCredential.getSystem())) {
             //这里可以自定义属性数据
             return createHandlerResult(credential, this.principalFactory.createPrincipal(((UsernamePasswordSysCredential) credential).getUsername(), Collections.emptyMap()), null);
         } else {

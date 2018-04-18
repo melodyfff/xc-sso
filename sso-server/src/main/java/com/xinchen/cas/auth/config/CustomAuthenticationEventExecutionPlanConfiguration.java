@@ -1,8 +1,3 @@
-/*
- * 版权所有.(c)2008-2017. 卡尔科技工作室
- */
-
-
 package com.xinchen.cas.auth.config;
 
 import com.mchange.v2.c3p0.ComboPooledDataSource;
