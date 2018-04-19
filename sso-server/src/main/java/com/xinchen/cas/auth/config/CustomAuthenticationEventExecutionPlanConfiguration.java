@@ -25,10 +25,10 @@ public class CustomAuthenticationEventExecutionPlanConfiguration implements Auth
     @Autowired
     @Qualifier("myok")
     private OK ok;
-//
-//    @Autowired
-//    @Qualifier("dataSource")
-//    private ComboPooledDataSource dataSource;
+
+    @Autowired
+    @Qualifier("dataSource")
+    private ComboPooledDataSource dataSource;
 
     @Autowired
     @Qualifier("servicesManager")

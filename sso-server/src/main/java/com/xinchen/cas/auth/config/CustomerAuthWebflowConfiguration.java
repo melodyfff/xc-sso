@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.autoconfigure.AutoConfigureBefore;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
+import org.springframework.cache.CacheManager;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -33,8 +34,12 @@ public class CustomerAuthWebflowConfiguration {
     private FlowDefinitionRegistry loginFlowRegistry;
 
     @Autowired
-    @Qualifier("builder")
-    private FlowBuilderServices builder;
+//    @Qualifier("builder")
+    private FlowBuilderServices flowBuilderServices;
+
+//    @Autowired
+//    @Qualifier("ticketRegistryCacheManager")
+//    private CacheManager cacheManager;
 
     @Autowired
     private ApplicationContext applicationContext;
@@ -44,7 +49,7 @@ public class CustomerAuthWebflowConfiguration {
 
     @Bean
     public CasWebflowConfigurer customWebflowConfigurer() {
-        final CustomWebflowConfigurer c = new CustomWebflowConfigurer(builder, loginFlowRegistry
+        final CustomWebflowConfigurer c = new CustomWebflowConfigurer(flowBuilderServices, loginFlowRegistry
                 ,applicationContext,casProperties);
         c.setLogoutFlowDefinitionRegistry(logoutFlowRegistry);
         return c;
