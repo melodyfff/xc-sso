@@ -34,9 +34,9 @@ public class CustomAuthenticationEventExecutionPlanConfiguration implements Auth
     @Qualifier("servicesManager")
     private ServicesManager servicesManager;
 
-//    @Autowired
-//    @Qualifier("jdbcPrincipalFactory")
-//    public PrincipalFactory jdbcPrincipalFactory;
+    @Autowired
+    @Qualifier("jdbcPrincipalFactory")
+    public PrincipalFactory jdbcPrincipalFactory;
 
     /**
      * 注册验证器
@@ -46,8 +46,8 @@ public class CustomAuthenticationEventExecutionPlanConfiguration implements Auth
     @Bean
     public AuthenticationHandler customAuthenticationHandler() {
         //优先验证
-        return new UsernamePasswordSystemAuthenticationHandler(UsernamePasswordSystemAuthenticationHandler.class.getSimpleName(),
-                servicesManager, new DefaultPrincipalFactory(), 1);
+        return new UsernamePasswordSystemAuthenticationHandler("customAuthenticationHandler",
+                servicesManager, jdbcPrincipalFactory, 1);
     }
 
     //注册自定义认证器
