@@ -35,8 +35,8 @@ public class CustomAuthenticationEventExecutionPlanConfiguration implements Auth
     private ServicesManager servicesManager;
 
     @Autowired
-    @Qualifier("jdbcPrincipalFactory")
-    public PrincipalFactory jdbcPrincipalFactory;
+//    @Qualifier("jdbcPrincipalFactory")
+    public PrincipalFactory principalFactory;
 
     /**
      * 注册验证器
@@ -47,7 +47,7 @@ public class CustomAuthenticationEventExecutionPlanConfiguration implements Auth
     public AuthenticationHandler customAuthenticationHandler() {
         //优先验证
         return new UsernamePasswordSystemAuthenticationHandler("customAuthenticationHandler",
-                servicesManager, jdbcPrincipalFactory, 1);
+                servicesManager, principalFactory, 1);
     }
 
     //注册自定义认证器

@@ -45,6 +45,7 @@ public class UsernamePasswordSystemAuthenticationHandler extends AbstractPreAndP
 
 //            最后一个参数null实际上是一组警告，这些警告最终进入认证链并有条件地向用户显示。这种警告的例子包括接近过期日期的密码状态等。
             return createHandlerResult(credential, this.principalFactory.createPrincipal(((UsernamePasswordSysCredential) credential).getUsername(), Collections.emptyMap()), null);
+
         } else {
             throw new AccountNotFoundException("必须是admin用户才允许通过");
         }
