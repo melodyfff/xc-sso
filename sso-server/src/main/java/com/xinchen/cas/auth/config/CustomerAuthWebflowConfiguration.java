@@ -35,7 +35,7 @@ public class CustomerAuthWebflowConfiguration {
     private FlowDefinitionRegistry loginFlowRegistry;
 
     @Autowired
-//    @Qualifier("builder")
+    @Qualifier("builder")
     private FlowBuilderServices flowBuilderServices;
 
 //    @Autowired

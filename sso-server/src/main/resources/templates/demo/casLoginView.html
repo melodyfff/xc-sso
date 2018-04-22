@@ -62,6 +62,17 @@
             </div>
 
         </section>
+        <section class="row">
+            <label for="validateCode" >验证码</label>
+            <div>
+                <img id="captcha_img" th:src="@{/captcha}" style="width: 125px;"/>
+                <input class="required"
+                       id="validateCode"
+                       name="validateCode"
+                />
+            </div>
+
+        </section>
         <section>
             <input type="hidden" name="execution" th:value="${flowExecutionKey}"/>
             <input type="hidden" name="_eventId" value="submit"/>
