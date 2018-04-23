@@ -25,6 +25,7 @@ public class CustomWebflowConfigurer extends AbstractCasWebflowConfigurer {
 
     @Override
     protected void doInitialize(){
+        LOGGER.info("初始化自定义认证流程");
         final Flow flow = super.getLoginFlow();
         bindCredential(flow);
     }
