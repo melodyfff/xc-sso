@@ -116,6 +116,10 @@
         <AsyncLogger name="org.apereo.cas.config" level="debug" additivity="false">
             <AppenderRef ref="casConsole"/>
         </AsyncLogger>
+        <!--自定义debug模式输出控制台-->
+        <AsyncLogger name="com.xinchen.cas" level="debug" additivity="false">
+            <AppenderRef ref="casConsole"/>
+        </AsyncLogger>
         <!--多属性debug模式输出控制台-->
         <AsyncLogger name="org.apereo.services.persondir" level="debug" additivity="false">
             <AppenderRef ref="casConsole"/>
