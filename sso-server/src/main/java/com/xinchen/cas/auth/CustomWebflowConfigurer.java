@@ -48,6 +48,6 @@ public class CustomWebflowConfigurer extends AbstractCasWebflowConfigurer {
         // 参数1 ：字段名
         // 参数2 ：转换器
         // 参数3 ：是否是必要的字段
-        cfg.addBinding(new BinderConfiguration.Binding("system", null, true));
+        cfg.addBinding(new BinderConfiguration.Binding("system", null, false));
     }
 }
