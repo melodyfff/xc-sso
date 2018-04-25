@@ -50,13 +50,22 @@ public class ValidateWebflowConfigurer extends AbstractCasWebflowConfigurer {
         final Flow flow = getLoginFlow();
         if (flow != null) {
             final ActionState state = (ActionState) flow.getState(CasWebflowConstants.STATE_ID_REAL_SUBMIT);
+            // 用于存储当前的Action列表
             final List<Action> currentActions = new ArrayList<>();
+
+            // 取出state中的Action进行填充填充Action
             state.getActionList().forEach(currentActions::add);
+
+            // state 中先去除所有Action
             currentActions.forEach(a -> state.getActionList().remove(a));
 
+            // 新建验证码 验证Action ，保证执行顺序是第一个
             state.getActionList().add(createEvaluateAction("validateLoginCaptchaAction"));
+
+            // 将原有的Action添加回state
             currentActions.forEach(a -> state.getActionList().add(a));
 
+            // 创建验证码错误 返回的Transition
             state.getTransitionSet().add(createTransition("captchaError", CasWebflowConstants.STATE_ID_INIT_LOGIN_FORM));
         }
     }

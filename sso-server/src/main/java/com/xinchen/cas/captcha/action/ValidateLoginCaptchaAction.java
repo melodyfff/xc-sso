@@ -52,6 +52,8 @@ public class ValidateLoginCaptchaAction extends AbstractAction {
                 }
             }
         }
+        // return null 默认执行下个Action
+        // 如果要 返回 this.success(); 要自定义success状态对应的
         return null;
     }
 
