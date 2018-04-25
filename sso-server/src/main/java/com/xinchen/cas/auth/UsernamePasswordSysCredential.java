@@ -10,9 +10,8 @@ import javax.validation.constraints.Size;
 /**
  * 用户名，密码，系统
  *
- * @author Carl
- * @date 2017/10/23
- * @since
+ * @author Xin Chen (xinchenmelody@gmail.com)
+ * @date: Created In 2018/4/22 18:46
  */
 @Entity
 public class UsernamePasswordSysCredential extends RememberMeUsernamePasswordCredential {

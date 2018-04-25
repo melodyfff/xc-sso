@@ -17,9 +17,8 @@ import java.util.Collections;
 /**
  * 用户名系统认证，只要是admin用户加上sso系统就允许通过
  *
- * @author Carl
- * @date 2017/10/23
- * @since 1.6.0
+ * @author Xin Chen (xinchenmelody@gmail.com)
+ * @date: Created In 2018/4/22 18:46
  */
 public class UsernamePasswordSystemAuthenticationHandler extends AbstractPreAndPostProcessingAuthenticationHandler {
     public UsernamePasswordSystemAuthenticationHandler(String name, ServicesManager servicesManager, PrincipalFactory principalFactory, Integer order) {
