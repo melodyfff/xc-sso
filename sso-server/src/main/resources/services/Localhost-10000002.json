@@ -6,5 +6,8 @@
   "description": "这是一个本地允许的服务，通过localhost访问都允许通过",
   "evaluationOrder": 10000000,
   "logoutUrl": "http://localhost:8080/ssh/",
-  "theme":"demo"
+  "theme":"demo",
+  "attributeReleasePolicy" : {
+    "@class" : "org.apereo.cas.services.ReturnAllAttributeReleasePolicy"
+  }
 }

@@ -13,6 +13,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.webflow.definition.registry.FlowDefinitionRegistry;
 import org.springframework.webflow.engine.ActionState;
 import org.springframework.webflow.engine.Flow;
+import org.springframework.webflow.engine.ViewState;
 import org.springframework.webflow.engine.builder.support.FlowBuilderServices;
 import org.springframework.webflow.execution.Action;
 
@@ -40,6 +41,7 @@ public class ValidateWebflowConfigurer extends AbstractCasWebflowConfigurer {
 
     @Override
     protected void doInitialize() {
+//        createPasswordResetValidateFlow();
         createLoginValidateValidateFlow();
     }
 
@@ -49,7 +51,7 @@ public class ValidateWebflowConfigurer extends AbstractCasWebflowConfigurer {
     private void createLoginValidateValidateFlow() {
         final Flow flow = getLoginFlow();
         if (flow != null) {
-            final ActionState state = (ActionState) flow.getState(CasWebflowConstants.STATE_ID_REAL_SUBMIT);
+            final ActionState state = (ActionState) flow.getState("checkSubmit");
             // 用于存储当前的Action列表
             final List<Action> currentActions = new ArrayList<>();
 
@@ -67,6 +69,25 @@ public class ValidateWebflowConfigurer extends AbstractCasWebflowConfigurer {
 
             // 创建验证码错误 返回的Transition
             state.getTransitionSet().add(createTransition("captchaError", CasWebflowConstants.STATE_ID_INIT_LOGIN_FORM));
+        }
+    }
+
+    /**
+     * 发送邮箱前输入验证码流程
+     */
+    private void createPasswordResetValidateFlow() {
+        final Flow flow = getLoginFlow();
+        if (flow != null) {
+            ViewState accountInfo = (ViewState) flow.getState(CasWebflowConstants.VIEW_ID_SEND_RESET_PASSWORD_ACCT_INFO);
+            //提交查找用户后，先校验验证码
+            createTransitionForState(accountInfo, "findAccount", VALIDATE_CAPTCHA_ACTION, true);
+            //校验图片动作
+            ActionState actionState = createActionState(flow, VALIDATE_CAPTCHA_ACTION, createEvaluateAction(VALIDATE_CAPTCHA_ACTION));
+            //失败重新是发送页
+            createTransitionForState(actionState, CasWebflowConstants.TRANSITION_ID_RESET_PASSWORD,
+                    CasWebflowConstants.VIEW_ID_SEND_RESET_PASSWORD_ACCT_INFO);
+            //发送邮件
+            createTransitionForState(actionState, "sendInstructions", "sendInstructions");
         }
     }
 

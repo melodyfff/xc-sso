@@ -1,6 +1,8 @@
 package com.xinchen.cas.captcha.config;
 
 import com.xinchen.cas.captcha.SessionCaptchaResultProvider;
+import com.xinchen.cas.captcha.action.CaptchaAwareFactory;
+import com.xinchen.cas.captcha.action.ValidateCaptchaAction;
 import com.xinchen.cas.captcha.action.ValidateLoginCaptchaAction;
 import org.apereo.cas.configuration.CasConfigurationProperties;
 import org.apereo.cas.web.flow.CasWebflowConfigurer;
@@ -17,6 +19,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.webflow.definition.registry.FlowDefinitionRegistry;
 import org.springframework.webflow.engine.builder.support.FlowBuilderServices;
 import org.springframework.webflow.execution.Action;
+import org.apereo.cas.pm.PasswordManagementService;
 
 /**
  * @author Xin Chen (xinchenmelody@gmail.com)
@@ -40,6 +43,9 @@ public class ValidateWebflowConfiguation {
     private FlowBuilderServices flowBuilderServices;
 
     @Autowired
+    private PasswordManagementService passwordManagementService;
+
+    @Autowired
     private SessionCaptchaResultProvider captchaResultProvider;
 
     @ConditionalOnMissingBean(name = "validateWebflowConfigurer")
@@ -53,11 +59,24 @@ public class ValidateWebflowConfiguation {
         return validateWebflowConfigurer;
     }
 
+    @ConditionalOnMissingBean(name = "validateCaptchaAction")
+    @Bean
+    @RefreshScope
+    public Action validateCaptchaAction() {
+        ValidateCaptchaAction validateCaptchaAction = new ValidateCaptchaAction(captchaResultProvider, captchaAwareFactory(), passwordManagementService);
+        return validateCaptchaAction;
+    }
+
     @ConditionalOnMissingBean(name = "validateLoginCaptchaAction")
     @Bean
     @RefreshScope
     public Action validateLoginCaptchaAction() {
         ValidateLoginCaptchaAction validateCaptchaAction = new ValidateLoginCaptchaAction(captchaResultProvider);
         return validateCaptchaAction;
+    }
+
+    @Bean
+    public CaptchaAwareFactory captchaAwareFactory() {
+        return new CaptchaAwareFactory();
     }
 }
