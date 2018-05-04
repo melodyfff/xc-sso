@@ -85,6 +85,20 @@
                    type="submit"/>
         </section>
     </form>
+    <script type="text/javascript" th:inline="javascript">
+        var i = [[#{screen.welcome.button.loginwip}]]
+        $("#fm1").submit(function () {
+            $(":submit").attr("disabled", true);
+            $(":submit").attr("value", i);
+            return true;
+        });
+        $(function() {
+            $(document).on('click','#captcha_img',function () {
+                console.log("切换验证码:"+$(this).attr("src"));
+                $(this).attr('src', $(this).attr("src")+"?"+Math.random());
+            });
+        });
+    </script>
 </div>
 </body>
 </html>

@@ -143,6 +143,12 @@
             $(":submit").attr("value", i);
             return true;
         });
+        $(function() {
+            $(document).on('click','#captcha_img',function () {
+                console.log("切换验证码:"+$(this).attr("src"));
+                $(this).attr('src', $(this).attr("src")+"?"+Math.random());
+            });
+        });
     </script>
     <div th:replace="fragments/loginsidebar"/>
 </div>

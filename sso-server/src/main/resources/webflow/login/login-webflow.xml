@@ -36,12 +36,17 @@
     <action-state id="checkSubmit" >
         <evaluate expression="authenticationViaFormAction" />
         <transition on="success" to="mytest"/>
+        <transition on="error" to="initializeLoginForm"/>
+        <transition on="authenticationFailure" to="handleAuthenticationFailure"/>
     </action-state>
 
     <view-state id="mytest" view="MyHello" model="credential">
-        <on-render>
-            <render fragments="content" />
-        </on-render>
+        <!--<on-render>-->
+            <!--<render fragments="content" />-->
+        <!--</on-render>-->
+        <binder>
+            <binding property="checkCode" required="true"/>
+        </binder>
         <transition on="submit" bind="true" validate="true" to="realSubmit" history="invalidate"/>
     </view-state>
 
