@@ -30,12 +30,14 @@
             <binding property="password" required="true"/>
             <binding property="system" required="true"/>
         </binder>
-        <transition on="submit" bind="true" validate="true" to="checkSubmit" history="invalidate"/>
+        <transition on="submit" bind="true" validate="true" to="realSubmit" history="invalidate"/>
     </view-state>
 
     <action-state id="checkSubmit" >
         <evaluate expression="authenticationViaFormAction" />
         <transition on="success" to="mytest"/>
+        <transition on="authenticationFailure" to="handleAuthenticationFailure"/>
+        <transition on="error" to="initializeLoginForm"/>
     </action-state>
 
     <view-state id="mytest" view="MyHello" model="credential">

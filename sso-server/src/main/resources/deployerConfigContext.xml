@@ -15,30 +15,30 @@
     <context:property-placeholder location="classpath:config.properties"/>
 
     <!-- 扫描service自动注入为bean -->
-    <context:component-scan base-package="com.xinchen.cas.auth"/>
+    <context:component-scan base-package="com.xinchen.cas"/>
 
     <bean id="myok" class="com.xinchen.cas.auth.entity.OK">
         <property name="name" value="test"/>
     </bean>
 
-    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
-        <property name="driverClass" value="${jdbc.driver}" />
-        <property name="jdbcUrl" value="${jdbc.url}" />
-        <property name="user" value="${jdbc.username}" />
-        <property name="password" value="${jdbc.password}" />
+    <!--<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">-->
+        <!--<property name="driverClass" value="${jdbc.driver}" />-->
+        <!--<property name="jdbcUrl" value="${jdbc.url}" />-->
+        <!--<property name="user" value="${jdbc.username}" />-->
+        <!--<property name="password" value="${jdbc.password}" />-->
 
-        <!-- 请求超时时间 -->
-        <property name="checkoutTimeout" value="30000" />
-        <!-- 每60秒检查所有连接池中的空闲连接。默认值: 0，不检查 -->
-        <property name="idleConnectionTestPeriod" value="30" />
-        <!-- 连接数据库连接池最大空闲时间 -->
-        <property name="maxIdleTime" value="30" />
-        <!-- 连接池初始化连接数 -->
-        <property name="initialPoolSize" value="5" />
-        <property name="minPoolSize" value="5" />
-        <property name="maxPoolSize" value="20" />
-        <!--当连接池中的连接耗尽的时候c3p0一次同时获取的连接数。默认值: 3 -->
-        <property name="acquireIncrement" value="5" />
-    </bean>
+        <!--&lt;!&ndash; 请求超时时间 &ndash;&gt;-->
+        <!--<property name="checkoutTimeout" value="30000" />-->
+        <!--&lt;!&ndash; 每60秒检查所有连接池中的空闲连接。默认值: 0，不检查 &ndash;&gt;-->
+        <!--<property name="idleConnectionTestPeriod" value="30" />-->
+        <!--&lt;!&ndash; 连接数据库连接池最大空闲时间 &ndash;&gt;-->
+        <!--<property name="maxIdleTime" value="30" />-->
+        <!--&lt;!&ndash; 连接池初始化连接数 &ndash;&gt;-->
+        <!--<property name="initialPoolSize" value="5" />-->
+        <!--<property name="minPoolSize" value="5" />-->
+        <!--<property name="maxPoolSize" value="20" />-->
+        <!--&lt;!&ndash;当连接池中的连接耗尽的时候c3p0一次同时获取的连接数。默认值: 3 &ndash;&gt;-->
+        <!--<property name="acquireIncrement" value="5" />-->
+    <!--</bean>-->
 
 </beans>

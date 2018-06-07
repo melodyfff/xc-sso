@@ -109,11 +109,11 @@
         <!--</dependency>-->
 
         <!-- mysql连接 -->
-        <!--<dependency>-->
-            <!--<groupId>mysql</groupId>-->
-            <!--<artifactId>mysql-connector-java</artifactId>-->
-            <!--<version>5.1.38</version>-->
-        <!--</dependency>-->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>5.1.38</version>
+        </dependency>
 
         <!-- c3p0数据源 -->
         <dependency>
@@ -159,14 +159,30 @@
             <artifactId>hsqldb</artifactId>
             <version>2.3.4</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/antlr/antlr -->
+        <dependency>
+            <groupId>antlr</groupId>
+            <artifactId>antlr</artifactId>
+            <version>2.7.7</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apereo.cas</groupId>
+            <artifactId>cas-server-support-rest</artifactId>
+            <version>${cas.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apereo.cas</groupId>
+            <artifactId>cas-server-support-rest-tokens</artifactId>
+            <version>${cas.version}</version>
+        </dependency>
 
         <!-- 票据存储 -->
         <!--redis-ticket-registry -->
-        <!--<dependency>-->
-            <!--<groupId>org.apereo.cas</groupId>-->
-            <!--<artifactId>cas-server-support-redis-ticket-registry</artifactId>-->
-            <!--<version>${cas.version}</version>-->
-        <!--</dependency>-->
+        <dependency>
+            <groupId>org.apereo.cas</groupId>
+            <artifactId>cas-server-support-redis-ticket-registry</artifactId>
+            <version>${cas.version}</version>
+        </dependency>
         <dependency>
             <groupId>org.apereo.cas</groupId>
             <artifactId>cas-server-support-jdbc-authentication</artifactId>

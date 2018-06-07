@@ -6,15 +6,16 @@ import com.xinchen.cas.auth.handler.UsernamePasswordSystemAuthenticationHandler;
 import org.apereo.cas.authentication.AuthenticationEventExecutionPlan;
 import org.apereo.cas.authentication.AuthenticationEventExecutionPlanConfigurer;
 import org.apereo.cas.authentication.AuthenticationHandler;
-import org.apereo.cas.authentication.principal.DefaultPrincipalFactory;
 import org.apereo.cas.authentication.principal.PrincipalFactory;
 import org.apereo.cas.configuration.CasConfigurationProperties;
 import org.apereo.cas.services.ServicesManager;
+import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * 寄存器
@@ -26,9 +27,10 @@ public class CustomAuthenticationEventExecutionPlanConfiguration implements Auth
     @Qualifier("myok")
     private OK ok;
 
-    @Autowired
-    @Qualifier("dataSource")
-    private ComboPooledDataSource dataSource;
+//    @Autowired
+//    @Qualifier("dataSource")
+//    private ComboPooledDataSource dataSource;
+
 
     @Autowired
     @Qualifier("servicesManager")
