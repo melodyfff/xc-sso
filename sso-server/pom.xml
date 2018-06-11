@@ -216,6 +216,12 @@
             <version>${cas.version}</version>
         </dependency>
 
+        <dependency>
+            <groupId>org.apereo.cas</groupId>
+            <artifactId>cas-server-documentation-swagger</artifactId>
+            <version>${cas.version}</version>
+        </dependency>
+
     </dependencies>
 
     <dependencyManagement>

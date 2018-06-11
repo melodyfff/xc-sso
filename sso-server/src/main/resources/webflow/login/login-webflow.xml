@@ -28,24 +28,29 @@
         <binder>
             <binding property="username" required="true"/>
             <binding property="password" required="true"/>
-            <binding property="system" required="true"/>
+            <!--<binding property="system" required="true"/>-->
         </binder>
-        <transition on="submit" bind="true" validate="true" to="realSubmit" history="invalidate"/>
+        <transition on="submit" bind="true" validate="true" to="checkSubmit" history="invalidate"/>
     </view-state>
 
     <action-state id="checkSubmit" >
-        <evaluate expression="authenticationViaFormAction" />
-        <transition on="success" to="mytest"/>
-        <transition on="authenticationFailure" to="handleAuthenticationFailure"/>
+        <evaluate expression="initializeLoginCheckCodeAction" />
+        <transition on="success" to="initCheckCode"/>
         <transition on="error" to="initializeLoginForm"/>
     </action-state>
 
-    <view-state id="mytest" view="MyHello" model="credential">
-        <on-render>
-            <render fragments="content" />
-        </on-render>
-        <transition on="submit" bind="true" validate="true" to="realSubmit" history="invalidate"/>
+    <view-state id="initCheckCode" view="checkCode" model="credential">
+        <binder>
+            <binding property="code" required="true"/>
+        </binder>
+        <transition on="submit" bind="true" validate="true" to="doCheckCode" history="invalidate"/>
     </view-state>
+
+    <action-state id="doCheckCode" >
+        <evaluate expression="checkCodeAction" />
+        <transition on="success" to="realSubmit"/>
+        <transition on="error" to="initCheckCode"/>
+    </action-state>
 
     <action-state id="realSubmit">
         <evaluate expression="authenticationViaFormAction"/>
