@@ -138,7 +138,7 @@
 
     <script type="text/javascript" th:inline="javascript">
         var i = [[#{screen.welcome.button.loginwip}]]
-        $("#fm1").submit(function () {
+        $("#fm1").submit(function (e) {
             $(":submit").attr("disabled", true);
             $(":submit").attr("value", i);
             return true;

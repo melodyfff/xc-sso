@@ -33,12 +33,15 @@
         <transition on="submit" bind="true" validate="true" to="checkSubmit" history="invalidate"/>
     </view-state>
 
+    <!--进行判断是否需要检查验证码-->
     <action-state id="checkSubmit" >
         <evaluate expression="initializeLoginCheckCodeAction" />
-        <transition on="success" to="initCheckCode"/>
+        <transition on="success" to="realSubmit"/>
+        <transition on="needCheck" to="initCheckCode" />
         <transition on="error" to="initializeLoginForm"/>
     </action-state>
 
+    <!--跳转到验证码检查页面-->
     <view-state id="initCheckCode" view="checkCode" model="credential">
         <binder>
             <binding property="code" required="true"/>
@@ -46,6 +49,7 @@
         <transition on="submit" bind="true" validate="true" to="doCheckCode" history="invalidate"/>
     </view-state>
 
+    <!--进行验证码检查-->
     <action-state id="doCheckCode" >
         <evaluate expression="checkCodeAction" />
         <transition on="success" to="realSubmit"/>

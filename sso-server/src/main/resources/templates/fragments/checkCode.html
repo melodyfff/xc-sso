@@ -6,17 +6,18 @@
         <h2 th:utext="请输入验证码"></h2>
 
         <section class="row">
-            <label for="myvalidate" th:utext="验证码"/>
             <div th:unless="${openIdLocalId}">
-                <input class="required"
+                <input class="required form-control"
                        id="myvalidate"
                        name="code"
                        size="25"
                        tabindex="1"
+                       placeholder="验证码"
                        type="text"
                        autocomplete="off"/>
             </div>
         </section>
+        <hr>
         <section>
             <input type="hidden" name="execution" th:value="${flowExecutionKey}"/>
             <input type="hidden" name="_eventId" value="submit"/>

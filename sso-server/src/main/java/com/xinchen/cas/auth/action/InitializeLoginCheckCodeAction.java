@@ -20,7 +20,14 @@ public class InitializeLoginCheckCodeAction extends AbstractAction {
     protected Event doExecute(RequestContext requestContext) throws Exception {
         LOGGER.debug("Initialized check code sequence");
         HttpServletRequest request = WebUtils.getHttpServletRequestFromExternalWebflowContext(requestContext);
-        request.getSession().setAttribute("code","01");
+
+        // 针对张三用户进行验证码校验
+        if ("zhangsan".equals(request.getParameter("username"))){
+            request.getSession().setAttribute("code","01");
+            return new Event(this, "needCheck");
+        }
+
+
         return this.success();
     }
 }

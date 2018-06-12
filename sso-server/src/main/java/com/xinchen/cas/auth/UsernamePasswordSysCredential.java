@@ -18,6 +18,9 @@ public class UsernamePasswordSysCredential extends RememberMeUsernamePasswordCre
     @Size(min = 2, message = "require system")
     private String system;
 
+    @Size(min = 2, message = "require system")
+    private String code;
+
     public String getSystem() {
         return system;
     }
@@ -25,6 +28,14 @@ public class UsernamePasswordSysCredential extends RememberMeUsernamePasswordCre
     public UsernamePasswordSysCredential setSystem(String system) {
         this.system = system;
         return this;
+    }
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
     }
 
     @Override
