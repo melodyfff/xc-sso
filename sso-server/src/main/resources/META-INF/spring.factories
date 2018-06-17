@@ -4,4 +4,5 @@ com.xinchen.cas.auth.config.CustomAuthenticationEventExecutionPlanConfiguration,
 com.xinchen.cas.auth.config.AppConfiguration,\
 com.xinchen.cas.captcha.config.CaptchaConfiguration,\
 com.xinchen.cas.captcha.config.ValidateWebflowConfiguation,\
-com.xinchen.cas.auth.action.ActionConfig
+com.xinchen.cas.auth.action.ActionConfig,\
+com.xinchen.cas.pm.CustomerPasswordManagerConfiguration

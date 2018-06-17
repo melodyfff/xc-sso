@@ -1,10 +1,9 @@
-package com.xinchen.cas.pwmanager;
+package com.xinchen.cas.pm;
 
-import com.xinchen.cas.pwmanager.action.InitPasswordChangeAction;
+import com.xinchen.cas.pm.action.CustomerInitPasswordChangeAction;
 import org.apereo.cas.configuration.CasConfigurationProperties;
 import org.apereo.cas.pm.PasswordManagementService;
 import org.apereo.cas.pm.PasswordValidationService;
-import org.apereo.cas.pm.config.PasswordManagementConfiguration;
 import org.apereo.cas.pm.web.flow.actions.InitPasswordResetAction;
 import org.apereo.cas.pm.web.flow.actions.PasswordChangeAction;
 import org.apereo.cas.pm.web.flow.actions.SendPasswordResetInstructionsAction;
@@ -87,7 +86,7 @@ public class CustomerPasswordManagerConfiguration {
     @RefreshScope
     @Bean
     public Action initPasswordChangeAction(){
-        return new InitPasswordChangeAction();
+        return new CustomerInitPasswordChangeAction();
     }
 
     @ConditionalOnMissingBean(

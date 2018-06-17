@@ -1,4 +1,4 @@
-package com.xinchen.cas.pwmanager;
+package com.xinchen.cas.pm;
 
 import org.apereo.cas.configuration.CasConfigurationProperties;
 import org.apereo.cas.pm.PasswordChangeBean;
@@ -44,6 +44,9 @@ public class CustomerPasswordManagerConfigurer extends AbstractCasWebflowConfigu
     }
 
     private void createAccountStatusViewStates(Flow flow) {
+        //----------------------------
+        // 创建视图
+        //----------------------------
         this.createViewState(flow, "casAuthenticationBlockedView", "casAuthenticationBlockedView");
         this.createViewState(flow, "casBadWorkstationView", "casBadWorkstationView");
         this.createViewState(flow, "casBadHoursView", "casBadHoursView");

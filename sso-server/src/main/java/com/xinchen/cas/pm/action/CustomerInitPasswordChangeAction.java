@@ -1,4 +1,4 @@
-package com.xinchen.cas.pwmanager.action;
+package com.xinchen.cas.pm.action;
 
 import org.apereo.cas.configuration.CasConfigurationProperties;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,11 +10,11 @@ import org.springframework.webflow.execution.RequestContext;
  * @author Xin Chen (xinchenmelody@gmail.com)
  * @date: Created In 2018/6/12 22:55
  */
-public class InitPasswordChangeAction extends AbstractAction {
+public class CustomerInitPasswordChangeAction extends AbstractAction {
     @Autowired
     private CasConfigurationProperties casProperties;
 
-    public InitPasswordChangeAction() {
+    public CustomerInitPasswordChangeAction() {
     }
 
     @Override
