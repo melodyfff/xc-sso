@@ -4,11 +4,13 @@ import org.apereo.cas.web.flow.InitializeLoginAction;
 import org.apereo.cas.web.support.WebUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.web.servlet.support.RequestContextUtils;
 import org.springframework.webflow.action.AbstractAction;
 import org.springframework.webflow.execution.Event;
 import org.springframework.webflow.execution.RequestContext;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.Locale;
 
 /**
  * @author Xin Chen (xinchenmelody@gmail.com)
@@ -20,7 +22,7 @@ public class InitializeLoginCheckCodeAction extends AbstractAction {
     protected Event doExecute(RequestContext requestContext) throws Exception {
         LOGGER.debug("Initialized check code sequence");
         HttpServletRequest request = WebUtils.getHttpServletRequestFromExternalWebflowContext(requestContext);
-
+        final Locale locale = RequestContextUtils.getLocaleResolver(request).resolveLocale(request);
         // 针对张三用户进行验证码校验
         if ("zhangsan".equals(request.getParameter("username"))){
             request.getSession().setAttribute("code","01");
